@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indicateurs de graphiques</title>
+  <style>
+    .container {
+    display:ruby-text-container;
+    flex-direction: calc();
+    align-items: center;
+    justify-content:center;
+    height: 200vh;
+    background-color:rgba(158, 142, 0, 0.318)
+  }
+  
+  .graphique-container {
+    margin-top: 20px;
+    width: 990px;
+  }
+
+  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="graphique-container">
+      <h1>Taux d'absentéisme aux examens</h1>
+      <canvas id="graphique-absenteisme"></canvas>
+    </div>
+  <script>
+    var labels = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai','juin'];
+    var donnees = [10, 20, 15, 25, 18,50];
+    // Création du graphique pour le taux d'absentéisme
+    var ctxAbsenteisme = document.getElementById('graphique-absenteisme').getContext('2d');
+    var graphiqueAbsenteisme = new Chart(ctxAbsenteisme, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Taux d\'absentéisme',
+          data: donnees,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
